@@ -39,10 +39,8 @@ $(document).ready(() => {
         }
         overtime = Math.abs(overtime);
         let hours = Math.floor(overtime);
-        let rest = overtime - hours;
-        let minutes = Math.floor(rest * 60);
-        rest = rest - minutes / 60;
-        let seconds = Math.floor(rest * 60);
+        let minutes = Math.floor(overtime * 60 % 60);
+        let seconds = Math.floor(overtime * 60 * 60 % 60);
         $('#time-overtime').html(`${underworked ? '-' : ''}${pad(hours, 2)}H ${pad(minutes, 2)}m ${pad(seconds, 2)}s`);
         showTimeHideTips();
     }
